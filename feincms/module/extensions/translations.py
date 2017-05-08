@@ -196,9 +196,6 @@ class Extension(extensions.Extension):
                     # Not an offsite link http://bla/blubb
                     try:
                         page = cls.objects.page_for_path(target)
-                        language = get_current_language_code(request)
-                        language = translation_allowed_language(language)
-                        page = page.get_translation(language)
                         # Note: Does not care about active status?
                         target = page.get_absolute_url()
                     except cls.DoesNotExist:
